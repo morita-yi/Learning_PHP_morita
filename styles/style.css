@@ -1,0 +1,48 @@
+body{
+    width: auto;
+    background-color: darkgrey;
+}
+
+.login{
+    text-align: center;
+    margin: 50px;
+}
+
+h1{
+    margin: auto;
+    width: 400px;
+    height: 45px;
+    background-color: ghostwhite;
+    border:5px solid darkred;
+}
+
+p{
+    text-align: center;
+}
+
+form{
+    margin-top: 50px;
+}
+
+label{
+    margin-left: 30px;
+}
+
+.signup{
+    text-align: center;
+    margin: 50px;
+}
+
+.signup p{
+    color: rgb(255, 0, 0);
+}
+
+.delete{
+    text-align: center;
+    margin: 50px;
+}
+
+.change{
+    text-align: center;
+    margin: 50px;
+}
