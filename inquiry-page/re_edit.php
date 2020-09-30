@@ -71,10 +71,15 @@
                 </tfoot>
 
             </table>
-
             <br>
+
             <div class="button">
                 <button class="button1" type="submit">お問い合わせ内容を確認</button>
+            </div>
+            <br>
+
+            <div class="link">
+                <a href='./inquiry.php'>topページに戻る</a>
             </div>
 
         </form>

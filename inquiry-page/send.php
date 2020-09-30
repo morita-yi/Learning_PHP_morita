@@ -1,11 +1,11 @@
 <?php
 require_once('./common.php');
-session_start();
-$name    = $_SESSION['name'];
-$email   = $_SESSION['email'];
-$phone   = $_SESSION['phone'];
-$subject = $_SESSION['subject'];
-$inquiry = $_SESSION['inquiry'];
+
+$name    = $_POST['name'];
+$email   = $_POST['email'];
+$phone   = $_POST['phone'];
+$subject = $_POST['subject'];
+$inquiry = $_POST['inquiry'];
 
 //テーブル作成
 $sql = 'CREATE TABLE IF NOT EXISTS inquiry_data(
@@ -21,17 +21,18 @@ $sql = 'CREATE TABLE IF NOT EXISTS inquiry_data(
 $pdo = new Postgresql($email);
 $pdo->query_run($sql);
 
-
+$msg=array();
 // 登録処理
 $sql ="INSERT INTO inquiry_data(email,name,phone,subject,inquiry) VALUES('${email}','${name}','${phone}','${subject}','${inquiry}')";
 try{
     $pdo->query_run($sql);
-    echo '送信完了';
+    $msg['res'] = '送信が完了しました。トップページに戻ります。';
 }catch(PDOException $e) {
-    echo '送信できませんでした';
-    echo 'Error:'.$e->getMessage();
+    $msg['res'] = '送信nできませんでした';
+    //echo 'Error:'.$e->getMessage();
 }
 
-echo "<a href='./top.php'>topページに戻る</a>";
+header("Content-type: application/json; charset=UTF-8");
+echo json_encode($msg);
 
 ?>
